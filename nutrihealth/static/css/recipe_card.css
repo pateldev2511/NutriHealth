@@ -1,0 +1,15 @@
+.flex-gap {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 5px solid #365577;
+    border-radius: 30px;
+}
+
+.flex-gap > div{
+    margin: 6px;
+}
+
+.recipe_card{
+    background-color:aliceblue;
+}

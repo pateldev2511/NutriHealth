@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>NutriHealth</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/Footer-Basic.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Form-Select---Full-Date---Month-Day-Year.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Google-Style-Login.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Login-screen.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Multi-Select-Dropdown.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Multiple-Input-Select-Pills.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Navigation-with-Button.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Pretty-Footer.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Profile-Edit-Form-1.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Profile-Edit-Form.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/common.css' %}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            debugger;
+            $("#lblforgotPassEmail").css("display", "none");
+            //----- OPEN
+            $('[data-popup-open]').on('click', function (e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+                e.preventDefault();
+            });
+
+            //----- CLOSE
+            $('[data-popup-close]').on('click', function (e) {
+                var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+                document.getElementById('forgotPassEmail').value = '';
+                $("#lblforgotPassEmail").css("display", "none");
+                e.preventDefault();
+            });
+
+            $('#btnForgotPass').click(function () {
+                var email = document.getElementById('forgotPassEmail').value;
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if (emailPattern.test(email)) {
+                    //window.location = "/login/resetpwd/?email="+email;
+                    //document.getElementById('forgotPassEmail').value = '';
+                    //return true;
+                    $.ajax({
+                        url: "/login/resetpwd/?email="+email,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            alert(data.message);
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1500);
+                        },
+                        error(errorData) {
+                            alert(errorData.message);
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1500);
+                        }
+                    });
+                } else {
+                    $("#lblforgotPassEmail").css("display", "block");
+                    document.getElementById('forgotPassEmail').value = '';
+                    return false;
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
+    <div class="container">
+        <div class="sidebar-heading text-center py-4 color-red  fs-4 fw-bold text-uppercase">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                      d="M12 2C13.66 2 15 3.34 15 5S13.66 8 12 8 9 6.66 9 5 10.34 2 12 2M20 18L18 12.56C17.65 11.57 17.34 10.71 16 10C14.63 9.3 13.63 9 12 9C10.39 9 9.39 9.3 8 10C6.68 10.71 6.37 11.57 6 12.56L4 18C3.77 19.13 6.38 20.44 8.13 21.19C9.34 21.72 10.64 22 12 22C13.38 22 14.67 21.72 15.89 21.19C17.64 20.44 20.25 19.13 20 18M15.42 17.5L12 21L8.58 17.5C8.22 17.12 8 16.61 8 16.05C8 14.92 8.9 14 10 14C10.55 14 11.06 14.23 11.42 14.61L12 15.2L12.58 14.6C12.94 14.23 13.45 14 14 14C15.11 14 16 14.92 16 16.05C16 16.61 15.78 17.13 15.42 17.5Z"/>
+            </svg>
+            NutriHealth
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Us</a>
+                </li>
+            </ul>
+            <span class="navbar-text actions">
+            <a class="btn btn-light action-button" role="button" href="/login/signup">Create an Account</a></span>
+        </div>
+    </div>
+</nav>
+<div class="login-card">
+    <img class="profile-img-card" src="{% static 'img/avatar_2x.png' %}"/>
+    <p class="profile-name-card"></p>
+    <form class="form-signin" action="/login/" method="post">
+        {% csrf_token %}
+        <span class="reauth-email"> </span>
+        <input class="form-control" type="email" id="email" required="" placeholder="Email address" name="email"
+               autofocus=""/>
+        <input class="form-control" type="password" id="password" name="password" required="" placeholder="Password"/>
+        <button class="btn btn-primary btn-lg d-block btn-signin w-100" type="submit"> Sign In</button>
+    </form>
+    <a href="#" class="text-decoration-none" id="aForgotPass" data-popup-open="popup-1" data-target="#modal-lg-danger"
+       data-toggle="modal">Forgot Password?</a>
+</div>
+<!-- Forgot Password -->
+<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget">
+                    <div class="form-elements-sec">
+                        {% comment %} Reset Password Form {% endcomment %}
+
+                        <div class="form-floating my-4">
+                            <input type="email" class="form-control" id="forgotPassEmail" name="forgot pass email"
+                                   required></input>
+                            <label for="forgotPassEmail">Email address</label>
+                        </div>
+                        </br>
+                        <label id="lblforgotPassEmail" style="color=:red">Please enter valid email</label>
+                        <div class="my-4 text-center">
+                            <a href="#" id="btnForgotPass" class="btn btn-primary btn-lg">Reset Password</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/Profile-Edit-Form.js' %}"></script>
+</body>
+</html>

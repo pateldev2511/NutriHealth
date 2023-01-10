@@ -1,0 +1,166 @@
+:root {
+    --red: #B22222;
+    --yellow: #fbdb48;
+    --gray: #bbbec5;
+}
+
+.color-red {
+    color: var(--red);
+}
+
+.color-gray {
+    color: var(--gray);
+}
+
+.color-yellow {
+    background-color: var(--yellow);
+}
+
+
+.rounded-full {
+    border-radius: 100%;
+}
+.img__card {
+    background-image: url("https://static.fanpage.it/wp-content/uploads/sites/22/2019/08/APRICOT-CHICKEN-015-638x425.jpg");
+    background-size:cover;
+    background-position: center;
+    border: 5px solid #B22222;
+    border-radius: 30px;
+}
+
+#dashboard {
+    overflow-x: hidden;
+    background-image: linear-gradient(
+        to right,
+        #569099,
+        #bce08a,
+        #93c572,
+        #d4f8ea,
+        #ddfaef
+    );
+}
+
+#sidebar {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar .list-group {
+    width: 15rem;
+}
+
+#dashboard__content {
+    min-width: 100vw;
+}
+
+#dashboard.toggled #sidebar {
+    margin-left: 0;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+.list-group-item {
+    align-content:center;
+    border: none;
+    padding: 20px 30px;
+}
+
+.list-group-item.active {
+    background-color: transparent;
+    color: var(--red);
+    font-weight: bold;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    #sidebar {
+        margin-left: 0;
+    }
+
+    #dashboard__content {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #dashboard.toggled #sidebar {
+        margin-left: -15rem;
+    }
+}
+
+/* Style the list items */
+ul.menu li{
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    color:black;
+
+}  
+
+
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+    background-color: #E3A76B;
+    color: white;
+}
+
+/* Style the header */
+.header {
+    padding: 30px 40px;
+    color: black;
+    text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the input */
+input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}

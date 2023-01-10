@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Dashboard</title>
+
+    <!-- Jquery for script -->
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div class="d-flex" id="dashboard">
+
+
+    <!-- Sidebar -->
+    <div class="bg-white" id="sidebar">
+        <div class="sidebar-heading text-center py-4 color-red  fs-4 fw-bold text-uppercase">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                      d="M12 2C13.66 2 15 3.34 15 5S13.66 8 12 8 9 6.66 9 5 10.34 2 12 2M20 18L18 12.56C17.65 11.57 17.34 10.71 16 10C14.63 9.3 13.63 9 12 9C10.39 9 9.39 9.3 8 10C6.68 10.71 6.37 11.57 6 12.56L4 18C3.77 19.13 6.38 20.44 8.13 21.19C9.34 21.72 10.64 22 12 22C13.38 22 14.67 21.72 15.89 21.19C17.64 20.44 20.25 19.13 20 18M15.42 17.5L12 21L8.58 17.5C8.22 17.12 8 16.61 8 16.05C8 14.92 8.9 14 10 14C10.55 14 11.06 14.23 11.42 14.61L12 15.2L12.58 14.6C12.94 14.23 13.45 14 14 14C15.11 14 16 14.92 16 16.05C16 16.61 15.78 17.13 15.42 17.5Z"/>
+            </svg>
+            NutriHealth
+        </div>
+        <div class="list-group list-group-flush my-3">
+            <a href="/dashboard" class="list-group-item list-group-item-action bg-transparent color-gray fw-bold">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#000000"
+                          d="M21,14V4H3V14H21M21,2A2,2 0 0,1 23,4V16A2,2 0 0,1 21,18H14L16,21V22H8V21L10,18H3C1.89,18 1,17.1 1,16V4C1,2.89 1.89,2 3,2H21M4,5H15V10H4V5M16,5H20V7H16V5M20,8V13H16V8H20M4,11H9V13H4V11M10,11H15V13H10V11Z"/>
+                </svg>
+                Dashboard
+            </a>
+            <a href="/recipe" class="list-group-item list-group-item-action bg-transparent color-gray fw-bold">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#000000"
+                          d="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z"/>
+                </svg>
+                Recipe Marketplace
+            </a>
+            <a href="/exercise"
+               class="list-group-item list-group-item-action bg-transparent color-gray fw-bold">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#000000"
+                          d="M12 5C10.89 5 10 5.89 10 7S10.89 9 12 9 14 8.11 14 7 13.11 5 12 5M22 1V6H20V4H4V6H2V1H4V3H20V1H22M15 11.26V23H13V18H11V23H9V11.26C6.93 10.17 5.5 8 5.5 5.5L5.5 5H7.5L7.5 5.5C7.5 8 9.5 10 12 10S16.5 8 16.5 5.5L16.5 5H18.5L18.5 5.5C18.5 8 17.07 10.17 15 11.26Z"/>
+                </svg>
+                Exercise Plan
+            </a>
+            <a href="/recipe/history" class="list-group-item list-group-item-action bg-transparent color-gray fw-bold">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                          d="M8.46,15.06L7.05,16.47L5.68,15.1C4.82,16.21 4.24,17.54 4.06,19H6V21H2V20C2,15.16 5.44,11.13 10,10.2V8.2L2,5V3H22V5L14,8.2V10.2C18.56,11.13 22,15.16 22,20V21H18V19H19.94C19.76,17.54 19.18,16.21 18.32,15.1L16.95,16.47L15.54,15.06L16.91,13.68C15.8,12.82 14.46,12.24 13,12.06V14H11V12.06C9.54,12.24 8.2,12.82 7.09,13.68L8.46,15.06M12,18A2,2 0 0,1 14,20A2,2 0 0,1 12,22C11.68,22 11.38,21.93 11.12,21.79L7.27,20L11.12,18.21C11.38,18.07 11.68,18 12,18Z"/>
+                </svg>
+                Weekly History
+            </a>
+            <a href="/recommendations"
+               class="list-group-item list-group-item-action bg-transparent color-gray fw-bold">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#000000"
+                          d="M17,4V10L15,8L13,10V4H9V20H19V4H17M3,7V5H5V4C5,2.89 5.9,2 7,2H19C20.05,2 21,2.95 21,4V20C21,21.05 20.05,22 19,22H7C5.95,22 5,21.05 5,20V19H3V17H5V13H3V11H5V7H3M5,5V7H7V5H5M5,19H7V17H5V19M5,13H7V11H5V13Z"/>
+                </svg>
+                Recommendations
+            </a>
+            <a href="/friends" class="list-group-item list-group-item-action bg-transparent color-gray fw-bold">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#000000"
+                          d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z"/>
+                </svg>
+                Friends Tracker
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- Page Content -->
+    <div id="dashboard__content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 px-4">
+            <div class="d-flex align-items-center">
+                <svg style="width:30px;height:30px" viewBox="0 0 24 24" id="menu-toggle">
+                    <path fill="currentColor"
+                          d="M21,15.61L19.59,17L14.58,12L19.59,7L21,8.39L17.44,12L21,15.61M3,6H16V8H3V6M3,13V11H13V13H3M3,18V16H16V18H3Z"/>
+                </svg>
+
+                <h2 class="fs-2 m-0 px-1">
+                    Dashboard
+                </h2>
+
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle color-gray fw-bold" href="#" id="navbarDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                      d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                            </svg>
+                            {{ user.first_name }} {{ user.last_name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            {#                                <li><a class="dropdown-item" href="/settings">Settings</a></li>#}
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid px-4">
+
+            <!-- Row 1 Dashcard: Meal Plan -->
+            <div class="row g-3 my-2 bg-white rounded">
+                <div class="d-flex">
+                    <div class="container-fluid p-3">
+                        <div class="row g-3 my-2 justify-content-center text-center">
+                            <div class="row g-3 my-2 justify-content-center text-center">
+                                <div class="col-md-12 header">
+                                    <h3>Meal Plan</h3>
+                                    <ul id="meal_list" class="menu">
+                                        {% for recipe in meals_for_today %}
+                                            <li>{{ recipe.name }}
+                                                <span class="fst-italic fw-bold px-4">
+                                                    {{ recipe.calories }} calories
+                                                </span>
+                                                <span id="{{ recipe.meal_history_id }}" class="close"
+                                                      onclick="removeMealHandler()">×</span>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% if meals_for_today|length == 0 %}
+                                        <span class="p-0 m-0">Search and enter the meal for today. </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="/recipe/search/">
+                            <input class="border" type="text" id="search_term" name="search_term"
+                                   placeholder="Search meal">
+
+                            <button type="submit" class="addBtn">
+                                Search
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Row 2 Dashcards -->
+            <div class="row g-3 my-2">
+                <!-- Today's Exercise Plan dashcard  -->
+                <div class="col-md-6">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center text-center rounded h-100">
+                        <div class="col-12 align-items-center">
+                            <h3 class="fs-2">Exercise Plan</h3>
+                            <ul id="meal_list" class="menu">
+                                {% for exercise in exercises_for_today %}
+                                    <li>{{ exercise.name }}
+                                        <span class="fst-italic fw-bold px-4">{{ exercise.duration }} minutes</span>
+                                        <span id="{{ exercise.exercise_history_id }}" class="close"
+                                              onclick="removeExerciseHandler()">×</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <br>
+                            <form action="/exercise/search/">
+                                <input class="border" type="text" id="search_term" name="search_term"
+                                       placeholder="Search exercise">
+
+                                <button type="submit" class="addBtn">
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calorie Tracker Dashcard  -->
+                <div class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded h-100">
+                        <div>
+                            <h3 class="fs-4">Calorie Tracker</h3>
+                            <svg style="width:150px;height:150px" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                      d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.5,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19A7,7 0 0,1 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.3,22 18.23,20.39 20.05,17.91L17.45,16.38C16.17,18 14.21,19 12,19Z"/>
+                            </svg>
+                            <p>
+                                <span class="fst-italic fw-bold"> {{ consumed_calories }}%</span> of daily calorie goal
+                            </p>
+                            <p>
+                                Total Calories: <span class="fst-italic fw-bold">{{ today_calories }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Water Tracker Dashcard  -->
+                <div class="col-md-3">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded h-100">
+                        <div>
+                            <h3 class="fs-4">Water Tracker</h3>
+                            <svg style="width:150px;height:150px" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                      d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.5,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19A7,7 0 0,1 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.3,22 18.23,20.39 20.05,17.91L17.45,16.38C16.17,18 14.21,19 12,19Z"/>
+                            </svg>
+                            <p><span class="fst-italic fw-bold">{{ total_water_perc }}%</span> of daily water limit</p>
+                            <div class="form-floating my-4">
+                                <div class="col-12">
+                                    <label for="txtWaterIntake">Water Intake(ltr)</label> <br>
+                                </div>
+                                <div class="col-12">
+                                    <input type="number" id="txtWaterIntake" class="form-control"
+                                           value="{{ total_water }}"
+                                           required/>
+                                </div>
+                                <div class="col-12">
+                                    <button class="addBtn w-100 mt-2"
+                                            id="btntxtWaterIntake"
+                                            onclick="return addWaterIntake();"> Add Water Intake
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Row 3 Dashcards-->
+            <div class="row g-3 my-2">
+                <!-- Recipe Marketplace dashcard  -->
+                <div class="col-md-12">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded"
+                         style="height: 260px">
+                        <div onclick="location.href='/recipe'">
+                            <h3 class="fs-2">Recipe Marketplace</h3>
+                            <div class="col-md-12 img__card px-5 py-5">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: Friends Tracker -->
+            {#              <div class="row g-3 my-2">#}
+            {#                  <!-- Today's Exercise Plan dashcard  -->#}
+            {#                  <div class="col-md-12">#}
+            {#                      <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded" style="height: 260px">#}
+            {#                          <div>#}
+            {#                              <h3 class="fs-2">Friends List</h3>#}
+            {##}
+            {##}
+            {#                          </div>#}
+            {#                      </div>#}
+            {##}
+            {#                 </div>#}
+            {##}
+            {#             </div>#}
+
+        </div>
+    </div>
+</div>
+<!--
+    ----------------Counters---------------------------------
+    <div class="container">
+     <div class="row">
+       <div class="col-md-6">
+         <div class="card">
+           <div class="card-body">
+             <h4 class="card-title">Water Counter</h4>
+             <h6 class="text-muted card-subtitle mb-2">
+               <br /><br />Daily WaterCounter<br /><br /><br />
+             </h6>
+             <div class="progress" style="margin: 5px">
+               <div
+                 class="progress-bar"
+                 aria-valuenow="50"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 style="width: 50%"
+               >
+                 50%
+               </div>
+             </div>
+             <p class="text-center card-text">
+               <img
+                 src="https://freeiconshop.com/wp-content/uploads/edd/bottle-outline-filled.png"
+                 width="150"
+                 height="150"
+                 style="width: 150px; height: 150px"
+               />
+             </p>
+             <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                 <button class="btn btn-dark btn-sm" id="minus-btn1">
+                   <i class="fa fa-minus"></i>
+                 </button>
+               </div>
+               <input
+                 type="number"
+                 id="qty_input1"
+                 class="form-control form-control-sm"
+                 value="1"
+                 min="1"
+               />
+               <div class="input-group-prepend">
+                 <button class="btn btn-dark btn-sm" id="plus-btn1">
+                   <i class="fa fa-plus"></i>
+                 </button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="card">
+           <div class="card-body">
+             <h4 class="card-title">Calorie Counter<br /></h4>
+             <h6 class="text-muted card-subtitle mb-2">
+               <br />Daily Calorie Counter<br /><br />
+             </h6>
+             <div class="progress" style="margin: 5px">
+               <div
+                 class="progress-bar"
+                 aria-valuenow="50"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 style="width: 50%"
+               >
+                 50%
+               </div>
+             </div>
+             <p class="text-center card-text">
+               <img
+                 src="https://cdn2.iconfinder.com/data/icons/keto-diet-1/64/calorie_calories_burn_fire_sign_weight_loss-512.png"
+                 width="150"
+                 height="150"
+                 style="width: 150px; height: 150px"
+               />
+             </p>
+             <p>&nbsp;</p>
+             <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                 <button class="btn btn-dark btn-sm" id="minus-btn">
+                   <i class="fa fa-minus"></i>
+                 </button>
+               </div>
+               <input
+                 type="number"
+                 id="qty_input"
+                 class="form-control form-control-sm"
+                 value="1"
+                 min="1"
+               />
+               <div class="input-group-prepend">
+                 <button class="btn btn-dark btn-sm" id="plus-btn">
+                   <i class="fa fa-plus"></i>
+                 </button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>-->
+
+
+<script src="{% static 'js/dashboard.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script>
+    var el = document.getElementById("dashboard");
+    var toggleButton = document.getElementById("menu-toggle");
+
+    toggleButton.onclick = function () {
+        el.classList.toggle("toggled");
+    };
+</script>
+<script>
+    $(document).ready(function () {
+        $("#qty_input").prop("disabled", true);
+        $("#plus-btn").click(function () {
+            $("#qty_input").val(parseInt($("#qty_input").val()) + 1);
+        });
+        $("#minus-btn").click(function () {
+            $("#qty_input").val(parseInt($("#qty_input").val()) - 1);
+            if ($("#qty_input").val() == 0) {
+                $("#qty_input").val(1);
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#qty_input1").prop("disabled", true);
+        $("#plus-btn1").click(function () {
+            $("#qty_input1").val(parseInt($("#qty_input1").val()) + 1);
+        });
+        $("#minus-btn1").click(function () {
+            $("#qty_input1").val(parseInt($("#qty_input1").val()) - 1);
+            if ($("#qty_input1").val() == 0) {
+                $("#qty_input1").val(1);
+            }
+        });
+    });
+</script>
+</body>
+</html>

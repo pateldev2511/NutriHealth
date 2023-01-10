@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/home_styles.css' %}" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/dashboard.css'%}" />
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <div class="sidebar-heading text-center py-4 color-red  fs-4 fw-bold text-uppercase">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 2C13.66 2 15 3.34 15 5S13.66 8 12 8 9 6.66 9 5 10.34 2 12 2M20 18L18 12.56C17.65 11.57 17.34 10.71 16 10C14.63 9.3 13.63 9 12 9C10.39 9 9.39 9.3 8 10C6.68 10.71 6.37 11.57 6 12.56L4 18C3.77 19.13 6.38 20.44 8.13 21.19C9.34 21.72 10.64 22 12 22C13.38 22 14.67 21.72 15.89 21.19C17.64 20.44 20.25 19.13 20 18M15.42 17.5L12 21L8.58 17.5C8.22 17.12 8 16.61 8 16.05C8 14.92 8.9 14 10 14C10.55 14 11.06 14.23 11.42 14.61L12 15.2L12.58 14.6C12.94 14.23 13.45 14 14 14C15.11 14 16 14.92 16 16.05C16 16.61 15.78 17.13 15.42 17.5Z" />
+                </svg>
+                NutriHealth
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-light me-2">
+                                <a href="/" style="color:#000; text-decoration:none">
+                                    Home
+                                </a>
+                            </button>
+                            <button type="button" class="btn btn-light me-2">
+                                <a href="/about" style="color:#000; text-decoration:none">
+                                    About
+                                </a>
+                            </button>
+{#                            <button type="button" class="btn btn-light me-2">#}
+{#                                <a href="#features" style="color:#000; text-decoration:none">#}
+{#                                    Features#}
+{#                                </a>#}
+{#                            </button>#}
+                            <button class="btn btn-primary me-2" type="button"><a href="/login" style="color:#000; text-decoration:none">
+                                    Log In
+                                </a></button>
+                            <button class="btn btn-secondary me-2" type="button">
+                                <a href="/login/signup" style="color:#000; text-decoration:none">
+                                    Sign Up
+                                </a>
+                            </button>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+
+    <div class="container-fluid hero" id ="home">
+        <div class="col-5 d-flex justify-content-center hero__content ">
+            <h1>Make your fitness tracking easier.</h1>
+            <p class ="hero__description">Utilize our features to take control 
+                of your fitness tracking. Meal planning, calorie and water tracking, 
+                recipe marketplace, and friends tracker with NutriHealth. 
+            </p>
+            <button type="button" class="btn btn-dark" onclick="location.href='/login'">Start Here</button>
+            <br></br>
+            <p class = "hero__description" style = "display: inline";>Already have an account?</p>
+            <a href ="/login" style = "color: black";>Login</a>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="container-fluid about" id="about">
+        <div class ="about__wrapper">
+            <div class="about__card about__content">
+                <h1>What we do</h1>
+                <hr></hr>
+
+                <br></br>
+                <h4>Help make health tracking easier</h4>
+                <p>We strive for an effortless approach to health tracking using only the necessary
+                    tools to get started. Make a dedicated meal and exercise plan, search for meals,
+                    and connect with friends in our simple and manageable dashboard.
+                </p>
+
+                <br></br>
+                <h4>Learn what's in your food</h4>
+                <p>Knowing the nutrition information in our food is vital in establishing
+                    a healthy meal plan. Learn about nutrition information, serving size,
+                    and calorie count while using our food database.
+                </p>
+
+                <br></br>
+                <h4>Help you stay motivated</h4>
+                <p>
+                    We believe staying motivated with health goals starts with
+                    having a accountability partner. Clients can interact with
+                    friends in our friends tracker feature to encourage themselves
+                    and others to stay focused on their health goals.
+                </p>
+            </div>
+
+            <div class="about__card about__img__card abcd">
+            </div>
+        </div>
+        <br></br>
+        <hr></hr>
+    </div>
+
+    <!-- Features -->
+    <div class = "container-fluid features" id ="features">
+        <div class ="row justify-content-center">
+            <div class = "col-5 features__heading">
+                <h1>Our Features</h1>
+                <hr></hr>
+            </div>
+        </div>
+
+        <br></br>
+
+        <div class="features__wrapper">
+            <div class = "features__card">
+                <svg style="width:50px;height:50px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M17,4V10L15,8L13,10V4H9V20H19V4H17M3,7V5H5V4C5,2.89 5.9,2 7,2H19C20.05,2 21,2.95 21,4V20C21,21.05 20.05,22 19,22H7C5.95,22 5,21.05 5,20V19H3V17H5V13H3V11H5V7H3M5,5V7H7V5H5M5,19H7V17H5V19M5,13H7V11H5V13Z" />
+                </svg>
+                <h3>Meal and Exercise Planning</h3>
+                <hr></hr>
+                <p>Set and edit your meal and exercise plan. View your plan
+                    in a readable to-do list form.
+                </p>
+            </div>
+
+            <div class = "features__card">
+                <svg style="width:50px;height:50px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M16.18,19.6L14.17,16.12C15.15,15.4 15.83,14.28 15.97,13H20C19.83,15.76 18.35,18.16 16.18,19.6M13,7.03V3C17.3,3.26 20.74,6.7 21,11H16.97C16.74,8.91 15.09,7.26 13,7.03M7,12.5C7,13.14 7.13,13.75 7.38,14.3L3.9,16.31C3.32,15.16 3,13.87 3,12.5C3,7.97 6.54,4.27 11,4V8.03C8.75,8.28 7,10.18 7,12.5M11.5,21C8.53,21 5.92,19.5 4.4,17.18L7.88,15.17C8.7,16.28 10,17 11.5,17C12.14,17 12.75,16.87 13.3,16.62L15.31,20.1C14.16,20.68 12.87,21 11.5,21Z" />
+                </svg>
+                <h3>Calorie and Water Tracker</h3>  
+                <hr></hr> 
+                <p>Set and track your calorie and water intake.</p>         
+            </div>
+
+            <div class = "features__card">
+                <svg style="width:50px;height:50px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
+                </svg>
+                <h3>Friends Tracker</h3>
+                <hr></hr>
+                <p>Connect with friends and see their health goal progression.</p>
+            </div>
+
+            <div class = "features__card">
+                <svg style="width:50px;height:50px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20,10C22,13 17,22 15,22C13,22 13,21 12,21C11,21 11,22 9,22C7,22 2,13 4,10C6,7 9,7 11,8V5C5.38,8.07 4.11,3.78 4.11,3.78C4.11,3.78 6.77,0.19 11,5V3H13V8C15,7 18,7 20,10Z" />
+                </svg>
+                <h3>Recipe Marketplace</h3>
+                <hr></hr>
+                <p>Search or add your own foods to our food database. Categorize your
+                    search by nutrition information, serving size, and calorie count.
+                </p>
+            </div>
+        </div>
+
+        <div class ="row justify-content-center">
+            <div class = "col-6 features__heading">
+                <h1>Search foods from our database</h1>
+                <hr></hr>
+                <form class="d-flex" action="/recipe/search/">
+                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search_term" id="search_term">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer Section -->
+{#    <div class = "container-fluid footer">#}
+{#        <div class ="footer__wrapper">#}
+{#            <div class ="footer__card">#}
+{#                <p>NutriHealth</p>#}
+{#            </div>#}
+{##}
+{#            <div class ="footer__card">#}
+{#                <p><span>&copy</span> NutriHealth 2021. All rights reserved</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+      function searchCuisine() {
+        var cousines = $("#search_term").val();
+        if (cousines === ""){
+            return;
+        }
+        //var cousines = cousines_arr.toString();
+        location.href = '/recipe/search/' + cousines + '/';
+
+        //document.write(cousines);
+        //document.write(url);
+        //$(window).attr('location', url);
+        //window.location.assign(url);
+      }
+
+    </script>
+</body>
+</html>
