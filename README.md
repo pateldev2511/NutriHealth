@@ -39,8 +39,8 @@ Professor: Maherukh Aktar
 Semester: Fall 2021
 
 Team Members:
+* Dev Patel
 * Tirth Darji
 * Parita Navadia
 * David Cheng
 * Smit Purohit
-* Dev Patel
