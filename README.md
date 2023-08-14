@@ -58,3 +58,24 @@ $ pip3 install pymongo
 $ python manage.py runserver
 ```
 
+## Screenshots
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/6c88bc79-b950-474e-b7fd-dbdb07dae944)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/564f4228-8ec8-43ea-a661-243f746afaaf)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/1bd63697-12c7-4ff9-9f6d-eb65b87a3fa6)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/050857c5-80d3-412b-a582-b36109718e2d)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/035f452c-dc1e-42ff-8685-1c0f9bcf60a2)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/82fd388e-5dc2-4975-b675-575e296bb01a)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/5059fe86-ca41-4d40-89ff-2921959a6de8)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/28c27c9c-b726-49ee-8384-ac4465b8575c)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/7dffe1c7-acd5-4308-a78f-78dcc001f69f)
+
+![image](https://github.com/pateldev2511/NutriHealth/assets/57655776/b0ad52a6-3ddb-4056-bfa9-674565a574bb)
